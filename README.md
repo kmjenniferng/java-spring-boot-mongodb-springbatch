@@ -11,7 +11,7 @@ Spring Batch is an open source framework for batch processing
 <img src="https://github.com/kmjenniferng/java-spring-boot-mongodb-springbatch/blob/main/screenshot1.png">
 
 Let's assume there is a scheduler that is running inside JVM which is going to trigger spring batch processing work flow. 
-**Scheduler** triggers job launcher which is a class inside Spring Batch framework. **Job launcher** is starting point for any job to be started inside Spring Batch framework.
+**Scheduler** triggers job launcher which is a class inside Spring Batch framework. **Job launcher** is a starting point for any job to be started inside Spring Batch framework.
 Job launcher will then trigger **job repository**. Job repository will hold all the statistical information, e.g. how many batches were run, what the status of each batch was, how many messages were processed, how many were skipped, etc.
 Job launcher also has a **job** which is registered inside job launcher. This particular job can have a step which consists of 3 components, **ItemReader**, **ItemProcessor**, **ItemWriter**. 
 They are used to read and process particular sources and write them back to some other sources. Sources can be database, file system or any queuing system.
@@ -23,7 +23,14 @@ In this project, we will use ItemReader to read a file, ItemProcessor to process
 
 ## Instructions on how to test the batch processing
 
-Type **localhost:8080/load** on browser and hit enter
+1. Create a csv file named users.csv and save the file in .../src/main/resources folder
+```
+id,firstName,lastName,email
+1,John,Haider,tom.haider@test.com
+2,Tom,Wang,tom.wang@test.com
+3,Sam,Smith,sam.smith@test.com
+```
+2. Run the application, type **localhost:8080/load** on browser and hit enter
 
 <img src="https://github.com/kmjenniferng/java-spring-boot-mongodb-springbatch/blob/main/screenshot3.png">
 
